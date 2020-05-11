@@ -24,7 +24,7 @@
 |            	| /user/<id>/mymessages      	| GET       	| Show loggedin users messages     	|
 |            	| /user/<id>/mymessages/<id> 	|  GET      	| Show users chat w/ selected user 	|
 |            	| /user/<id>/mymessages/<id> 	| POST      	| Send New message in chat         	|
-|            	| /user/<id>/mymessages/new  	| POST      	| Start new chat                   	|
+|            	| /user/<id>/mymessages/new  	| POST      	| Start new chat, with message                   	|
 |            	|                            	|           	|                                  	|
 
 
