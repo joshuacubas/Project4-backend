@@ -9,13 +9,13 @@
 
 | Route Name 	| URL, api/v1                	| HTTP Verb 	| Description                      	|
 |------------	|----------------------------	|-----------	|----------------------------------	|
-|            	| /login                     	| POST      	| User Logs in                     	|
-|            	| /register                  	| POST      	| Creates new user                 	|
-|            	| /logout                    	| GET       	| Logs Out User                    	|
-|            	| /loggedInUser              	| GET       	| Gets loggedInUser Info           	|
-|            	| /events                    	| GET       	| Today's events show page         	|
-|            	| /events/search             	| POST      	| Find Search event name           	|
-|            	| /events/add                	| POST      	| Add Event                        	|
+|            	| /users/login               | POST      	| User Logs in                     	|
+|            	| /users/register            | POST      	| Creates new user                 	|
+|            	| /users/logout              | GET       	| Logs Out User                    	|
+|            	| /loggedInUser              | GET       	| Gets loggedInUser Info           	|
+|            	| /events                    | GET       	| Today's events show page         	|
+|            	| /events/search             | POST      	| Find Search event name           	|
+|            	| /events/add                | POST      	| Add Event                        	|
 |            	| /events/id               	| GET       	| event show page                  	|
 |            	| /events/id               	| POST      	| Add Comment to event page        	|
 |            	| /events/manage/id        	| UPDATE    	| edit event info                  	|
