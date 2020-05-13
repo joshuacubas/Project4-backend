@@ -16,15 +16,15 @@
 |            	| /events                    	| GET       	| Today's events show page         	|
 |            	| /events/search             	| POST      	| Find Search event name           	|
 |            	| /events/add                	| POST      	| Add Event                        	|
-|            	| /events/<id>               	| GET       	| event show page                  	|
-|            	| /events/<id>               	| POST      	| Add Comment to event page        	|
-|            	| /events/manage/<id>        	| UPDATE    	| edit event info                  	|
-|            	| /events/manage/<id>        	| DELETE    	| delete event                     	|
-|            	| /user/<id>                 	| GET       	| User Show Page                   	|
-|            	| /user/<id>/mymessages      	| GET       	| Show loggedin users messages     	|
-|            	| /user/<id>/mymessages/<id> 	|  GET      	| Show users chat w/ selected user 	|
-|            	| /user/<id>/mymessages/<id> 	| POST      	| Send New message in chat         	|
-|            	| /user/<id>/mymessages/new  	| POST      	| Start new chat                   	|
+|            	| /events/id               	| GET       	| event show page                  	|
+|            	| /events/id               	| POST      	| Add Comment to event page        	|
+|            	| /events/manage/id        	| UPDATE    	| edit event info                  	|
+|            	| /events/manage/id        	| DELETE    	| delete event                     	|
+|            	| /user/id                 	| GET       	| User Show Page                   	|
+|            	| /user/id/mymessages      	| GET       	| Show loggedin users messages     	|
+|            	| /user/id/mymessages/id 	|  GET      	| Show users chat w/ selected user 	|
+|            	| /user/id/mymessages/id	| POST      	| Send New message in chat         	|
+|            	| /user/id/mymessages/new  	| POST      	| Start new chat, with message                   	|
 |            	|                            	|           	|                                  	|
 
 
