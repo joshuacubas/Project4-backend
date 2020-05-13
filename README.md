@@ -31,8 +31,7 @@
 ### Models:
 
 ##### Event
--organizer(foreign keys)
--atttenders(array foreign keys)
+-organizer
 -date
 -comments(array)
 -picture
@@ -49,6 +48,8 @@
 -password
 -email
 -picture
+-organized_events
+-attending_events
 
 ##### Chats
 -usernames (array)
@@ -58,4 +59,3 @@
 -username (from)
 -message
 -datetime
-
