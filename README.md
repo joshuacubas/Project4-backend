@@ -31,15 +31,26 @@
 ### Models:
 
 ##### Event
+-name
 -organizer
--date
--comments(array)
+-date_month
+-date_day
+-date_year
+-time_hr
+-time_min
+-time_ampm
 -picture
 -description
 -street_address
 -city
 -state
 -zipcode
+
+##### Comment
+-date_time
+-author
+-description
+-foreign_key->event.id
 
 ##### User
 -city

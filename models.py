@@ -19,18 +19,33 @@ class User(UserMixin, Model):
 
 
 class Event(Model):
+	name=CharField()
 	organizer=ForeignKeyField(User,backref='organized_events')
-	attenders=ForeignKeyField(User,backref='attending_events')
-	date=DateTimeField(default=datetime.datetime.now)
-	comments=CharField() #should comments bbe its own model={user,event,time,text}
+	date_time=TextField()
 	description=CharField()
 	street_address=TextField()
 	city=TextField()
 	state=TextField()
-	zipcode=IntegerField()
+	zipcode=TextField()
+	picture=TextField()
+	# date_month=payload['date_month'],
+	# date_day=payload['date_day'],
+	# date_year=payload['date_year'],
+	# time_hr=payload['time_hr'],
+	# time_min=payload['time_min'],
+	# time_ampm=payload['time_ampm'],
 
 	class Meta:
 		database = DATABASE
+
+class Comment(Model):
+	event=ForeignKeyField(Event,backref='comments')
+	author=ForeignKeyField(User,backref='comments')
+	description=TextField()
+	posted_time=DateTimeField(default=datetime.datetime.now)
+
+	class Meta:
+		datetime=DATABASE
 
 
 class Chat(Model):
@@ -44,7 +59,7 @@ class Chat(Model):
 class Message(Model):
 	user_id=ForeignKeyField(User,backref="messages")
 	message=TextField()
-	post_time=DateTimeField(default=datetime.datetime.now)
+	posted_time=DateTimeField(default=datetime.datetime.now)
 	chat_id=ForeignKeyField(Chat,backref='messages')
 
 	class Meta:
