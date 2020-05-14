@@ -42,14 +42,12 @@ def create_event():
 	days = (payload['days']) 
 	hours = (payload['hours']) # remember to change 12 hours to 24 in react req
 	mins = (payload['minutes'] )
-	secs = 0
 	date_time = datetime.datetime(
 		int(years),
 		int(months),
 		int(days),
 		int(hours),
-		int(mins),
-		int(secs)
+		int(mins)
 		)	
 	time = date_time.strftime('%I:%M:%p')
 	print("current_user",current_user) 
@@ -79,8 +77,57 @@ def create_event():
 
 
 
+@events.route('/manage/<id>',methods=['DELETE'])
+@login_required
+def delete_event(id):
+	delete_query= models.Event.delete().where(models.Event.id == id)
+	num_of_rows_deleted = delete_query.execute()
+	print("num_of_rows_deleted --->-->-->",num_of_rows_deleted)
+	return jsonify(
+		data={},
+		message = f"Successfully deleted {num_of_rows_deleted} event(s), with id: {id}.",
+		status=200
+		),200
+
+@events.route('/manage/<id>',methods=['PUT'])
+@login_required
+def update_event(id):
+	payload = request.get_json()
 
 
+	years = (payload['years'])
+	months = (payload['months']) 
+	days = (payload['days']) 
+	hours = (payload['hours']) # remember to change 12 hours to 24 in react req
+	mins = (payload['minutes'] )
+	date_time = datetime.datetime(
+		int(years),
+		int(months),
+		int(days),
+		int(hours),
+		int(mins)
+		)	
+	time = date_time.strftime('%I:%M:%p')
+
+	update_query = models.Event.update(
+		name=payload['name'],
+		date_time=time,
+		street_address=payload['street_address'],
+		city=payload['city'],
+		state=payload['state'],
+		zipcode=payload['zipcode'],
+		description=payload['description'],
+		picture=payload['picture'],
+		).where(models.Event.id == id)
+	num_of_rows_changed = update_query.execute()
+	updated_event = models.Event.get_by_id(id)
+	updated_event_dict = model_to_dict(updated_event)
+
+	return jsonify(
+		data={},
+		message=f"Successfully update recipe, with id of {id}",
+		status=200
+		),200
 
 
 
