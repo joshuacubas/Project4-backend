@@ -13,9 +13,23 @@ def all_events():
 	print(all_event_dicts)
 	return jsonify({
 		'data':all_event_dicts,
-		'message':"hello"
-		})
-	
+		'message':"hello",
+		'status':200,
+		}),200
+
+@events.route('/manage/myevents')
+@login_required
+def my_organized_events():
+
+	my_events = [model_to_dict(event) for event in models.Event.select().where(models.Event.organizer == current_user.id)]
+ 
+	print("my_events",my_events)
+
+	return jsonify(
+		data=my_events,
+		message= f"found {len(my_events)} events organized by logged in user ",
+		status=200
+		),200
 
 @events.route('/add',methods=['POST'])
 @login_required
