@@ -50,6 +50,8 @@ def create_event():
 		int(mins)
 		)	
 	time = date_time.strftime('%I:%M:%p')
+	day = date_time.strftime('%A, %B %d, %Y')
+	print("day",day)
 	print("current_user",current_user) 
 	
 
@@ -57,6 +59,7 @@ def create_event():
 		name=payload['name'],
 		organizer=current_user.id,
 		date_time=time,
+		date_day=day,
 		street_address=payload['street_address'],
 		city=payload['city'],
 		state=payload['state'],
@@ -80,6 +83,7 @@ def create_event():
 @events.route('/manage/<id>',methods=['DELETE'])
 @login_required
 def delete_event(id):
+	#make sure only this user can delete their own
 	delete_query= models.Event.delete().where(models.Event.id == id)
 	num_of_rows_deleted = delete_query.execute()
 	print("num_of_rows_deleted --->-->-->",num_of_rows_deleted)
@@ -108,10 +112,12 @@ def update_event(id):
 		int(mins)
 		)	
 	time = date_time.strftime('%I:%M:%p')
+	day = date_time.strftime('%A, %B %d, %Y')
 
 	update_query = models.Event.update(
 		name=payload['name'],
 		date_time=time,
+		date_day=day,
 		street_address=payload['street_address'],
 		city=payload['city'],
 		state=payload['state'],

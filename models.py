@@ -22,6 +22,7 @@ class Event(Model):
 	name=CharField()
 	organizer=ForeignKeyField(User,backref='organized_events')
 	date_time=TextField()
+	date_day=TextField()
 	description=CharField()
 	street_address=TextField()
 	city=TextField()
